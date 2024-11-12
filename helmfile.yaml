@@ -1,0 +1,47 @@
+repositories:
+  - name: local
+    url: "file://./nginx-pod-chart"
+
+environments:
+  dev:
+    values:
+      - env: dev
+      - clusters:
+          - name: john-dev
+            count: 1
+
+  prod:
+    values:
+      - env: prod
+      - clusters:
+          - name: john-prod
+            count: 2
+          - name: mike-prod
+            count: 1
+          - name: sam-prod
+            count: 1
+
+releases:
+  - name: john-dev
+    chart: local/nginx-pod-chart
+    values:
+      - john.yaml
+    namespace: {{ .Environment.Values.env }}
+
+  - name: john-prod
+    chart: local/nginx-pod-chart
+    values:
+      - john.yaml
+    namespace: {{ .Environment.Values.env }}
+
+  - name: mike-prod
+    chart: local/nginx-pod-chart
+    values:
+      - mike.yaml
+    namespace: {{ .Environment.Values.env }}
+
+  - name: sam-prod
+    chart: local/nginx-pod-chart
+    values:
+      - sam.yaml
+    namespace: {{ .Environment.Values.env }}

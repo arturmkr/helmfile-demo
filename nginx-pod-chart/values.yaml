@@ -1,0 +1,14 @@
+# Default values for nginx-pod-chart.
+
+# Default message (can be overridden by specific values files)
+MESSAGE: "Hello, World!"
+
+# Default image tag (can be overridden by specific values files)
+TAG: "latest"
+
+# Default tags for the pod (can be overridden by specific values files)
+TAGS:
+  name: "default"
+
+# Default environment for the pod (overridden by specific environments in helmfile.yaml)
+env: "default"
