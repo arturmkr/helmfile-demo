@@ -1,3 +1,5 @@
+### Helmfile Demo
+This project demonstrates using Helmfile to deploy and manage NGINX pod configurations across different environments (`dev` and `prod`) with reusable Helm charts.
 ### Initialize and create the chart:
 ```
 curl -Lo  helmfile_0.169.1_linux_amd64.tar.gz https://github.com/helmfile/helmfile/releases/download/v0.169.1/helmfile_0.169.1_linux_amd64.tar.gz
